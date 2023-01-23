@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+}
+.wrapper {
+    height: 100vh;
+    background-color: beige;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+    align-content: center;
+    gap: 10px;
+}
+.card {
+    width: 70px;
+    height: 70px;
+    border: 1px dotted rgb(178, 177, 177);
+    border-radius: 10px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
