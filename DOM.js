@@ -144,42 +144,113 @@
 // });
 // console.log(hash)
 
-document.body.innerText = "";
+// document.body.innerText = "";
+
+// // Task "Mood cards"
+// const moods = [
+//     'cloud',
+//     'sun',
+//     'wind',
+//     'water',
+//     'moon',
+//     'cloud-sun',
+//     'cloud-rain',
+//     'snowflake',
+//     'bolt'  
+// ];
+
+// const getNumber = (max = 10, min = 0) => Math.floor(Math.random() * (max - min) + min);
+// const getColor = () => {
+//     let r = getNumber(256);
+//     let g = getNumber(256);
+//     let b = getNumber(256);
+//     return `rgb(${r},${g},${b})`
+// }
+
+// let wrapper = document.createElement("div");
+// wrapper.className = "wrapper";
+// wrapper.style = `background-color: ${getColor()}`; 
+// document.body.append(wrapper);
+
+// for(let mood of moods) {
+//     let card = document.createElement("div");
+//     card.className = "card";
+//     card.innerHTML= `<i class="fa-solid fa-${mood}"></i>`;
+//     card.style = `color: ${getColor()} `
+//     wrapper.append(card);
+// }
+
+// document.body.innerText = ""
 
 
-const moods = [
-    'cloud',
-    'sun',
-    'wind',
-    'water',
-    'moon',
-    'cloud-sun',
-    'cloud-rain',
-    'snowflake',
-    'bolt'  
-];
+// ex.2.7 В скрипте объявлен массив values, который состоит из чисел. В HTML-документе есть множество тегов <p> с классом elems. Необходимо дописать скрипт так, чтобы он удалил все теги <p> с классом elems, значение которых входит в массив values.
 
-const getNumber = (max = 10, min = 0) => Math.floor(Math.random() * (max - min) + min);
-const getColor = () => {
-    let r = getNumber(256);
-    let g = getNumber(256);
-    let b = getNumber(256);
-    return `rgb(${r},${g},${b})`
+// const values = [10, 50, 100];
+// let elements = document.querySelectorAll(".elems");
+
+// elements.forEach(el => {
+//     if (el.innerText === values[i]) {
+//         el.remove()
+//     }
+// })
+
+// ex.2.9 В HTML-документе есть тег <ul> c идентификатором first. Внутри этого тега есть теги <li>. Напишите скрипт, который создает новый тег <li> в переменной new_element и добавляет в элемент <ul> с идентификатором first. После добавления нового элемента выведите в консоль общее количество тегов <li> в теге <ul> с идентификатором first.
+
+// const parent = document.querySelector('#first');
+// const new_element = document.createElement("li");
+// parent.appendChild(new_element);
+// console.log(parent.children.length)
+
+// ex.2.10 В скрипте объявлена переменная values, которая содержит массив из строк. В HTML-верстке есть два тега <div> с классами div1 и div2. Допишите скрипт так, чтобы все теги <p> из тега с идентификатором div1, значение которого встречается в списке values, переместились в тег с идентификатором div2.
+// const values = ["велосипед", "ролики", "лыжи"];
+// const d1 = document.querySelectorAll("#div1 p");
+// const d2 = document.querySelector("#div2");
+// const arr = [...d1].map(el => el.innerText);
+// const matched = values.filter(e => arr.indexOf(e) > -1);
+// const res = matched.map(el => {
+//     const elem = document.createElement("p");
+//     elem.innerText = el;
+//     return elem;
+// })
+// d1.forEach(el => {
+//     for (val of values) {
+//         if (val === el.innerText) {
+//             el.remove()
+//         }
+//     }
+// })
+// d2.append(...res)
+
+
+const values = ["велосипед", "ролики", "лыжи"]
+const d1 = document.querySelectorAll("#div1 p");
+const d2 = document.querySelector("#div2");
+const arr = [...d1].map(el => el.innerText);
+const matched = values.filter(e => arr.indexOf(e) > -1);
+
+for(i = 0; i < matched.length; i++) {
+    remove(matched[i])
+    add(matched[i])
+}
+            
+function remove(name) {
+    d1.forEach(el => {
+    if (name === el.innerText) {
+        el.remove()
+    }
+})
+}
+function add(name) {
+    const elem = document.createElement("p");
+    elem.innerText = name;
+    d2.append(elem)
 }
 
-let wrapper = document.createElement("div");
-wrapper.className = "wrapper";
-wrapper.style = `background-color: ${getColor()}`; 
-document.body.append(wrapper);
 
-for(let mood of moods) {
-    let card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML= `<i class="fa-solid fa-${mood}"></i>`;
-    card.style = `color: ${getColor()} `
-    wrapper.append(card);
-}
+// ex.2.13 В HTML-документе есть тег <ul> с идентификатором tasks, и внутри него есть несколько тегов <li> с текстом. Напишите скрипт, который позволяет отсортировать элементы <li> в теге <ul> по длине содержимого.
 
-
-
+// const list = document.querySelectorAll("#tasks li");
+// const elements = Array.from(list);
+// elements.sort ((a,b) => a.textContent.length -  b.textContent.length);
+// elements.forEach(el => {document.querySelector("#tasks").append(el)});
 
