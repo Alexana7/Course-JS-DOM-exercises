@@ -362,13 +362,11 @@
 
 
 // 4.5 В HTML-документе задан тег <button> с идентификатором delete и тег <ul> c идентификатором points и c элементами <li> внутри. Напишите скрипт, который позволяет удалить последний элемент <li> в списке <ul> при нажатии на кнопку
-
 // const btn = document.querySelector("#delete");
 // const list = document.querySelector("#points");
 
 // btn.addEventListener("click", function() {
-//     list.removeChild(list.lastChild);
-    
+//    list.lastElementChild.remove() 
 // });
 
 // 4.6 В HTML-документе задан тег <div> c идентификатором square в виде красного квадрата. У него есть атрибут style с указанными высотой и шириной в 100 пикселей. Напишите скрипт, который уменьшает ширину и высоту квадрата на 10% при клике по нему.
@@ -385,8 +383,34 @@
 
 // const btn = document.querySelector(".copy");
 // btn.addEventListener("click", function(){
-//     let item = document.createElement("button")
-//     item.classList.add("copy");
-//     item.innerText = btn.innerText; 
-//     document.body.appendChild(item)
+//     let el =btn.cloneNode(true);
+//     document.body.appendChild(el)
+// })
+
+// 4.8 В HTML-документе есть несколько тегов <p>. Внутри них указаны числа. Напишите скрипт, который позволяет при нажатии на любой параграф увеличить его содержимое на единицу.
+
+// const items = document.querySelectorAll(".card3>p");
+
+// items.forEach(el => {
+//     el.addEventListener("click", function() {
+//         let n = el.innerText;
+//         el.innerText = +n + 1;
+//     })
+// }) 
+ 
+
+// 4.9 В HTML-документе есть два тега <div> с идентификаторами div1 и div2 с элементами <p> внутри. Напишите скрипт, который перемещает тег <p> из одного тега <div> в другой при клике по этому элементу <p>.
+
+// const d1 = document.querySelector("#div1");
+// const d2 = document.querySelector("#div2");
+
+// const targets = document.querySelectorAll("#div1>p, #div2>p");
+// targets.forEach(el => {
+//     el.addEventListener("click", function() {
+//         if (el.parentElement === d1) {
+//             d2.append(el)
+//         } else {
+//             d1.append(el)
+//         }
+//     })
 // })

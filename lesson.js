@@ -88,3 +88,46 @@ document.body.addEventListener("click", e => {
     updateBg(e.currentTarget);
 })
 
+
+// form
+const pictures = [
+    '/img-sport/Tilda_Icons_22sp_baseball.svg',
+    '/img-sport/Tilda_Icons_22sp_basketball.svg',
+    '/img-sport/Tilda_Icons_22sp_football.svg'
+];
+const names = [
+    'baseball',
+    'basketball',
+    'football'
+]
+
+const pic = document.querySelector(".item>.img");
+const name = document.querySelector(".item>h3");
+
+
+const sel = document.querySelector("#pic")
+
+pictures.forEach((img, i) => {
+  sel.append(new Option(names[i], img))  
+});
+
+sel.addEventListener("change", e => {
+    pic.style.backgroundImage = `url(${sel.value})`
+})
+// получаем форму
+const form = document.forms[0];
+// отслеживаем отправку формы
+form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    console.log(this.elements); // свойство .elements работает только с form. Возращает все теги формы, которые работают с данными: button, input, select, textarea
+
+    for (let i = 0; i < form.elements.length; i++) {
+        let el = form.elements[i];
+
+        if (el.name === 'name') {
+            el.addEventListener("input", function() {
+                name.innerText = el.value;
+            }) 
+        }
+    }
+})
