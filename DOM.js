@@ -221,30 +221,29 @@
 // })
 // d2.append(...res)
 
+// const values = ["велосипед", "ролики", "лыжи"]
+// const d1 = document.querySelectorAll("#div1 p");
+// const d2 = document.querySelector("#div2");
+// const arr = [...d1].map(el => el.innerText);
+// const matched = values.filter(e => arr.indexOf(e) > -1);
 
-const values = ["велосипед", "ролики", "лыжи"]
-const d1 = document.querySelectorAll("#div1 p");
-const d2 = document.querySelector("#div2");
-const arr = [...d1].map(el => el.innerText);
-const matched = values.filter(e => arr.indexOf(e) > -1);
-
-for(i = 0; i < matched.length; i++) {
-    remove(matched[i])
-    add(matched[i])
-}
+// for(i = 0; i < matched.length; i++) {
+//     remove(matched[i])
+//     add(matched[i])
+// }
             
-function remove(name) {
-    d1.forEach(el => {
-    if (name === el.innerText) {
-        el.remove()
-    }
-})
-}
-function add(name) {
-    const elem = document.createElement("p");
-    elem.innerText = name;
-    d2.append(elem)
-}
+// function remove(name) {
+//     d1.forEach(el => {
+//     if (name === el.innerText) {
+//         el.remove()
+//     }
+// })
+// }
+// function add(name) {
+//     const elem = document.createElement("p");
+//     elem.innerText = name;
+//     d2.append(elem)
+// }
 
 
 // ex.2.13 В HTML-документе есть тег <ul> с идентификатором tasks, и внутри него есть несколько тегов <li> с текстом. Напишите скрипт, который позволяет отсортировать элементы <li> в теге <ul> по длине содержимого.
@@ -254,3 +253,140 @@ function add(name) {
 // elements.sort ((a,b) => a.textContent.length -  b.textContent.length);
 // elements.forEach(el => {document.querySelector("#tasks").append(el)});
 
+// 3.1. В HTML-документе задан тег <div> с идентификатором div_elem. Напишите скрипт, который добавит в стиль данного элемента ширину и высоту по 100 пикселей.
+// const div = document.querySelector("#div_elem");
+// div.style.width = "100";
+// div.style.height = "100";
+
+// 3.2. В HTML-документе задан тег <p> с идентификатором rainbow. Напишите скрипт, который указывает в стиле синий цвет текста (#2980b9).
+
+// const paragraph = document.querySelector("#rainbow");
+// paragraph.style.color = "#2980b9"
+
+// 3.3 В HTML-документе есть тег <label> и тег <input> с идентификатором target. Необходимо написать скрипт, который присваивает тегу <label> атрибут, позволяющий привязать его к тегу <input>. В результате при клике мышью на <label> тег <input> должен стать активным (в него должен переместиться курсор).
+
+// const label = document.querySelector("label");
+// label.setAttribute("for", "target");
+
+// 3.4  В HTML-документе есть тег <p> c идентификатором rainbow. Внутри этого тега указано число. Реализуйте скрипт, который делает преобразование в зависимости от следующих условий: Е
+// Eсли числовое значение находится в диапазоне от 1 до 9 включительно, должно меняться значение атрибута style. Цвет текста — на красный (#c0392b).
+// Если числовое значение находится в диапазоне от 10 до 20 включительно — на коричневый (#e17055).
+// В ином случае — на желтый (#fdcb6e).
+// const p = document.querySelector("#rainbow");
+// let n = p.innerText;
+
+//  if(n >= 1 && n <= 9) {
+//     p.style.color = "#c0392b";
+//  } else if(n >= 10 && n <= 20) {
+//     p.style.color = "#e17055";
+
+//  } else {
+//     p.style.color = "#fdcb6e";
+//  }
+
+// 3.5 В HTML-документе есть тег <div> с идентификатором photo. Внутри этого тега указана ссылка на картинку. Необходимо написать скрипт, который:
+
+// заменит ссылку на тег <img> с этой картинкой
+// укажет размеры картинки в атрибуте style 100 на 100 пикселей
+
+// const elem = document.querySelector("#photo");
+// let link = elem.innerText;
+// elem.innerHTML = "<img>"
+// const img = document.querySelector("img");
+// img.setAttribute("src", `${link}`)
+// img.style.width = "100";
+// img.style.height = "100"
+
+// 3.6 В HTML-документе задан тег <select> c идентификатором numbers. Напишите скрипт, который добавит внутрь этого тега несколько тегов <option> со значениями от 10 до 550 с шагом 10. Значение у тега <option> должно быть указано внутри и в атрибуте value.
+// const numbers = document.querySelector("#numbers")
+// let arr = [];
+// for(let i = 0; i < 550;) {
+//     i = i + 10;
+//     arr.push(i)
+// }
+// arr.forEach(num => {
+//     let option = document.createElement("option");
+//     option.value = num;
+//     option.innerText = num;
+//     numbers.appendChild(option)
+// })
+
+
+
+
+
+
+// 3.7 В HTML-документе задан тег <select>. В скрипте объявлена переменная countries, в которой указаны некоторые страны. Доработайте скрипт так, чтобы в тег <select> добавились теги <option> по одному на каждую страну из массива countries. В качестве значения тега option укажите название страны, а в качестве атрибута — value первые две буквы страны в нижнем регистре (маленькими буквами).
+
+// const countries = ["Armenia", "Russia", "Germany", "France", "Georgia"];
+// const select = document.querySelector("select");
+// countries.forEach(c => {
+// let option = document.createElement("option");
+// option.value = c.slice(0, 2).toLowerCase();
+// option.innerText = c;
+// select.appendChild(option)
+	
+// })
+
+// 4.1 В HTML-документе задан тег <button> с идентификатором btn и тег <p> с идентификатором val. Напишите скрипт, который выводит в консоль содержимое тега <p> при клике на кнопку.
+
+// const btn = document.querySelector("#btn");
+// const paragraph = document.querySelector("#val");
+
+// btn.click = function(event) {
+//     console.log(paragraph.innerText)
+// }
+
+// 4.2 В HTML-документе задан тег <button> с идентификатором btn и тег <input> с идентификатором val. Напишите скрипт, который выводит в консоль значение тега <input> при клике на кнопку.
+// const btn = document.querySelector("#btn");
+// const input = document.querySelector("#val");
+
+// btn.click = function() {
+//     console.log(input.value)
+// }
+
+// 4.3 В HTML-документе задан тег <div> c идентификатором square. Он представляет собой синий квадрат. Напишите скрипт, который позволяет сделать <div> прозрачным (opacity: 0) при клике по нему.
+
+// const square = document.querySelector("#square");
+
+// square.onclick = function() {
+//     this.style.opacity = 0;
+ 
+// }
+
+// 4.4 В HTML-документе есть тег <button> с идентификатором clicker. Напишите скрипт, который добавит обработку события клика на кнопку с идентификатором clicker. При нажатии на кнопку число внутри тега <button> должно увеличиваться на один.
+// const btn = document.querySelector("#clicker");
+// btn.addEventListener("click", function() {
+//     btn.innerText += 1;
+// });
+
+
+// 4.5 В HTML-документе задан тег <button> с идентификатором delete и тег <ul> c идентификатором points и c элементами <li> внутри. Напишите скрипт, который позволяет удалить последний элемент <li> в списке <ul> при нажатии на кнопку
+
+// const btn = document.querySelector("#delete");
+// const list = document.querySelector("#points");
+
+// btn.addEventListener("click", function() {
+//     list.removeChild(list.lastChild);
+    
+// });
+
+// 4.6 В HTML-документе задан тег <div> c идентификатором square в виде красного квадрата. У него есть атрибут style с указанными высотой и шириной в 100 пикселей. Напишите скрипт, который уменьшает ширину и высоту квадрата на 10% при клике по нему.
+
+// const sq = document.querySelector("#square");
+// sq.addEventListener('click', e => {
+//     let w = parseInt(sq.style.w) || sq.scrollWidth;
+//     let h = parseInt(sq.style.h) || sq.scrollHeight;
+//     sq.style.width = w * 0.9 + "px";
+//     sq.style.height = h * 0.9 + "px";
+
+
+// 4.7 В HTML-документе задан тег <button> с классом copy. Напишите скрипт, который позволит при нажатии на кнопку <button> создать ее копию и расположить в конце тега body.
+
+// const btn = document.querySelector(".copy");
+// btn.addEventListener("click", function(){
+//     let item = document.createElement("button")
+//     item.classList.add("copy");
+//     item.innerText = btn.innerText; 
+//     document.body.appendChild(item)
+// })
